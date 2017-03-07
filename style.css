@@ -1,0 +1,269 @@
+body {	
+}
+
+.tab {
+
+  border-collapse: collapse;
+  
+  /*border: 1px solid #000;*/
+  text-align: center;
+  vertical-align: middle;
+  /*background: chartreuse;*/
+	font-size: 8px;
+	margin: 0 auto;
+	
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}
+
+.tab tr > td {
+  /*border: 1px solid #000;*/
+  width: 10px;
+  height: 10px;
+  /*background: chartreuse;*/
+  border-color: #00eeff;
+}
+
+/*.space:hover {
+    background: #efefef;
+}*/
+
+.field:hover {
+    background: #efefef;
+}
+
+.image:hover {
+    /*border: 1px solid #00ef00;*/
+    background: rgba(255, 255, 0, 0.5);
+}
+
+.space {
+    border: none;
+    background: white;
+}
+
+.field {
+    border: 1px solid #000;
+    background: cyan;/*chartreuse;*/
+}
+
+.image {
+    border: 1px solid #000;
+    #background: #808080;
+    /*
+    border-left: 1px solid #000;
+    border-top: 1px solid #000;*/
+    /*background: none;*/
+}
+
+.header {
+	border-radius: 50px;
+	border: 1px solid #efefef;
+	background-color: #efefef;
+}
+
+.menu li{
+	display: inline-block;
+	padding-right: 5px;
+	white-space: pre;
+}
+
+.menu ul {
+	#padding: 10px;
+	text-align: center;
+	#float: left;
+}
+
+.menu ul a {
+	margin: 5px;
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.menu ul div {
+  display: inline-block;
+  background-color: #00aaff;
+  padding: 15px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.menu ul div:hover{
+  background-color: #00ffff;
+  border-radius: 30px;
+}
+
+.content {
+	#padding: 5px;
+	#margin: 20px;
+	background-color: #d0ffd0;
+	overflow: auto;
+	margin: 20px 10px 0 10px;
+	border-radius: 15px;
+}
+
+.header {
+	text-align: center;
+}
+
+.content h1 {
+	text-align: center;
+}
+
+.sector {
+	background-color: #a0ffa0;
+	border-radius: 50px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  padding: 1%;
+}
+
+.sector_game {
+  text-align: center;
+  width: 90%;
+  margin: 20px 0 20px 2%;
+  float: left;
+  -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.sector_main {
+  margin: 20px 2% 20px 2%;
+}
+
+.user_info_load p:first-child {
+	vertical-align: middle;
+	margin-top: 80px;
+	font-size: 20px;
+}
+
+.sector_сreate {
+  text-align: center;
+  width: 90%;
+  margin: 20px 0 20px 2%;
+  float: left;
+  -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.spacer {
+	clear: both;
+}
+
+.file_upload {
+  /* Для того, чтобы спозиционировать input
+     относительно контейнера. */
+  position: relative;
+  /* Скрываем неумещающуюся часть input-а. */
+  overflow: hidden;
+ 
+  /* Украшательство: */
+  background: #eee;
+  
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  
+  font-size: 30px;
+  line-height: 1;
+  text-align: center;
+  
+  
+  width: 4%;
+  padding: 1%;
+  margin: 20px 2% 20px 2%;
+  
+  height: 100%;
+  float: right;
+  
+  
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+ 
+.file_upload a {
+  /* Позиционируем правый верхний край
+     input поверх нашего контейнера.
+     Правый верхний потому как именно там
+     у нас кнопка. */
+  position: absolute;
+  top: 0; right: 0;
+ 
+  /* Делаем input побольше, чтобы он точно
+     перекрыл контейнер по вертикалі. */
+  font-size: 300px;
+ 
+  /* Делаем input невидимым. По-другому нельзя,
+     иначе браузер не будет на него реагировать. */
+  opacity: 0;
+  filter: alpha(opacity=0);
+ 
+  /*  Украшательства: */
+  cursor: pointer;
+}
+
+
+.file_upload input {
+  /* Позиционируем правый верхний край
+     input поверх нашего контейнера.
+     Правый верхний потому как именно там
+     у нас кнопка. */
+  position: absolute;
+  top: 0; right: 0;
+ 
+  /* Делаем input побольше, чтобы он точно
+     перекрыл контейнер по вертикалі. */
+  font-size: 400px;
+ 
+  /* Делаем input невидимым. По-другому нельзя,
+     иначе браузер не будет на него реагировать. */
+  opacity: 0;
+  filter: alpha(opacity=0);
+ 
+  /*  Украшательства: */
+  cursor: pointer;
+}
+
+.page_name {
+  background: #eee;
+  margin: 20px 0 20px 0;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.menu .defolt {
+  background-color: #00d0ff;
+  border-radius: 20px;
+}
+
+.name_site {
+  margin: 20px 20px 0 20px;
+  padding: 20px;
+  background-color: #00e0ff;
+  border-radius: 15px;
+  font-size: 30px;
+}
+
+.logo {
+	float: left;
+}
+
+.logo img {
+	width: 189px;
+	height: 189px;
+	position: relative;
+	border-radius: 50px 0 0 50px;
+	border: 3px #000 solid;
+}
+
+.content .sector  .sector_img {
+	height: 200px;
+	float: right;
+	margin: 20px;
+}
+
+.space {
+	background-color: #eeeeee;
+}
