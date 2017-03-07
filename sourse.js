@@ -122,7 +122,7 @@ function create_table(table, img_size, img_pixels, field) {
 	//field = calculate_field(img_pixels);
 	
 	//Робимо товсті лінії
-	//table = make_thick_border(table, img_size);
+	table = make_thick_border(table, img_size);
 	
 	//Вішаємо хендлер на onclic на комірки image
 	for(var i = img_size.right_depth; i < (img_size.right_depth + img_size.width); i++){
