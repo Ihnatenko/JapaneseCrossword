@@ -21,6 +21,7 @@ for(var i = 0; i < img_size.height; i++) {
 //Добавляємо таблицю
 field = calculate_field(img_pixels);
 table = create_table(table, img_size, img_pixels, field);
+table.onclick = delete_user_info; //Вішаємо обробник;
 apply_field(table, field);
 
 //Ініціалізація
@@ -76,9 +77,6 @@ function hendler4save_img() {
 	downloader.setAttribute('download', "imag_" + (img_size.height - 2) + "x" + (img_size.width - 2));
 	
 }
-
-//*********//
-//function chea
 
 //*********//
 function hendler4_onmousedown(event){
@@ -382,7 +380,6 @@ function hendler4_onmouseup(){
 	//console.log(img_pixels);
 	field = calculate_field(img_pixels);		
 	//console.log(img_pixels);
-	console.log("------");
 	table.innerHTML = "";
 	
 	img_size.top_depth   = field.top[0].length;
@@ -395,4 +392,16 @@ function hendler4_onmouseup(){
 	//Ініціалізація
 	apply_img_pixels(table, img_pixels, img_size);
 	
+	//Видалемо повідомлення, якщо воно ще існує
+	var elem_for_del = document.querySelectorAll(".sector");
+	if(elem_for_del[1]) {
+		elem_for_del[1].parentNode.removeChild(elem_for_del[1]);
+	}
+	
+}
+
+//*********//
+function delete_user_info(){
+	var delete_sector = querySelector(".sector")[1];
+	delete_sector.parentNode.removeChild(delete_sector);
 }

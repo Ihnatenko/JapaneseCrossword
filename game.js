@@ -3,7 +3,7 @@ var reader = new FileReader();
 
 var img_size;        				//об'являються тут, 
 var img_pixels_user; 				//але заповнюються в хендлері, 
-var img_pixels; 					//бо нужні доступними в глобальному об'єкті
+var img_pixels = []; 					//бо нужні доступними в глобальному об'єкті
 
 var mouse_status;
 
@@ -11,13 +11,14 @@ var status_result_game = false;
 
 var size_cell = {width: 10,  //редагувати синхронно з css
 				 height: 10}
+				 
+add_hundlers4choice();
 
 //Обробник закінчення загрузки
 reader.onload = function(event) {
 	var file_values = event.target.result.split(",");
 	var width = +file_values[0];
 	var height = +file_values[1];
-	img_pixels = [];
 	
 	var tab = document.querySelector("tbody");
 	if(tab) {
@@ -31,27 +32,7 @@ reader.onload = function(event) {
 		}
 	}
 	
-	var field = calculate_field(img_pixels); 
-	
-	img_size = {width: img_pixels[0].length,
-		height: img_pixels.length,
-		top_depth: field.top[0].length,
-		right_depth: field.right[0].length};
-
-	img_pixels_user = create_and_init_image_color( 3, img_pixels[0].length, img_pixels.length);
-	table = create_table(table, img_size, img_pixels_user, field);
-	apply_img_pixels(table, img_pixels_user, img_size);
-	
-	
-	var elem_for_del = document.querySelector(".user_info_load");
-	if(elem_for_del) {
-		elem_for_del.parentNode.removeChild(elem_for_del);
-	}
-	
-	elem_for_del = document.querySelector(".sector_img");
-	if(elem_for_del) {
-		elem_for_del.parentNode.removeChild(elem_for_del);
-	}
+	start_game(img_pixels);
 	
 };
  
@@ -76,10 +57,49 @@ control.addEventListener("change", function(event) {
 	
 }, false);
 
+function add_hundlers4choice() {
+	
+	var choice_table = document.querySelector(".choice-table");
+	choice_table.childNodes[1].childNodes[1].onclick = choice_game;
+	choice_table.childNodes[1].childNodes[3].onclick = choice_game;
+	choice_table.childNodes[1].childNodes[5].onclick = choice_game;
+	choice_table.childNodes[1].childNodes[7].onclick = choice_game;
+	
+}
+
+//*********//
+function start_game(img_pixels){
+	
+	var field = calculate_field(img_pixels); 
+	
+	img_size = {width: img_pixels[0].length,
+		height: img_pixels.length,
+		top_depth: field.top[0].length,
+		right_depth: field.right[0].length};
+
+	img_pixels_user = create_and_init_image_color( 3, img_pixels[0].length, img_pixels.length);
+	table = create_table(table, img_size, img_pixels_user, field);
+	apply_img_pixels(table, img_pixels_user, img_size);
+	
+	
+	var elem_for_del = document.querySelector(".sector");
+	if(elem_for_del) {
+		elem_for_del.parentNode.removeChild(elem_for_del);
+	}
+	
+	var elem_for_del = document.querySelector(".user_info_load");
+	if(elem_for_del) {
+		elem_for_del.parentNode.removeChild(elem_for_del);
+	}
+	
+	elem_for_del = document.querySelector(".sector_img");
+	if(elem_for_del) {
+		elem_for_del.parentNode.removeChild(elem_for_del);
+	}
+}
+
 //*********//
 function hendler4_onmousedown(event){
-
-
 
 	//Визначаємо координати комірки
 	var className = this.classList[1];
@@ -417,4 +437,36 @@ function check_result_game(img_pixels_user, img_pixels) {
 	}
 	
 	return true;
+}
+
+//*********//
+function choice_game() {
+	var className = this.classList[0];
+	
+	var imag_txt_arr = [imag_txt_1, imag_txt_2, imag_txt_3, imag_txt_4];
+	
+	
+	
+	
+	
+	var x = className.substring(className.indexOf('-') + 2);
+
+	//eval("var file_upload = imag_txt_" + x + "; ");
+	
+	var file_upload = imag_txt_arr[x];
+	
+	var width = +file_upload[0]; 
+	var height = +file_upload[1];
+	
+	for(var i = 0; i < width; i++){
+		img_pixels[i] = [];
+		for(var j = 0; j < height; j++){
+			img_pixels[i][j] = +file_upload[i*height + j + 2];
+		}
+	}
+	
+	console.log(file_upload);
+	
+	start_game(img_pixels);
+	
 }
